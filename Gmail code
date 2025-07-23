@@ -18,17 +18,17 @@ public class GmailPageCheck {
         // Check if the page title contains "Gmail"
         String pageTitle = driver.getTitle();
         if (pageTitle.contains("Gmail")) {
-            System.out.println("✅ Landed on Gmail page successfully!");
+            System.out.println("Landed on Gmail page successfully!");
         } else {
-            System.out.println("❌ Not on the expected Gmail page.");
+            System.out.println("Not on the expected Gmail page.");
         }
 
         // Optional: Check for presence of email input field
         try {
             WebElement emailField = driver.findElement(By.id("identifierId"));
-            System.out.println("✅ Email input field found.");
+            System.out.println("Email input field found.");
         } catch (Exception e) {
-            System.out.println("❌ Email input field not found.");
+            System.out.println("Email input field not found.");
         }
 
         // Close browser
