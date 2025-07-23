@@ -1,0 +1,37 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class GmailPageCheck {
+    public static void main(String[] args) {
+        // Set path to your ChromeDriver
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+
+        // Launch Chrome browser
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+
+        // Open Gmail login page
+        driver.get("https://mail.google.com/");
+
+        // Check if the page title contains "Gmail"
+        String pageTitle = driver.getTitle();
+        if (pageTitle.contains("Gmail")) {
+            System.out.println("✅ Landed on Gmail page successfully!");
+        } else {
+            System.out.println("❌ Not on the expected Gmail page.");
+        }
+
+        // Optional: Check for presence of email input field
+        try {
+            WebElement emailField = driver.findElement(By.id("identifierId"));
+            System.out.println("✅ Email input field found.");
+        } catch (Exception e) {
+            System.out.println("❌ Email input field not found.");
+        }
+
+        // Close browser
+        driver.quit();
+    }
+}
